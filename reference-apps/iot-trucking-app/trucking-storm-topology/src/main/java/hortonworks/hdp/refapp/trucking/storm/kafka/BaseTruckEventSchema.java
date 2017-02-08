@@ -18,6 +18,7 @@ public abstract class BaseTruckEventSchema implements Scheme {
 	private static final Logger LOG = LoggerFactory.getLogger(BaseTruckEventSchema.class);
 
 	public static String[] deserializeRawString(ByteBuffer string) {
+        LOG.trace(" Deserializing Truck schema");
         String deserializedRawString = null;
 		if (string.hasArray()) {
             int base = string.arrayOffset();

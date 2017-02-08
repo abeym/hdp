@@ -323,6 +323,7 @@ public class TruckEventProcessorKafkaTopologyPhase3 extends BaseTruckEventTopolo
 		 * and emit a 2-tuple consisting of truckId and truckEvent. This driverId
 		 * is required to do a fieldsSorting so that all driver events are sent to the set of bolts */
 		spoutConfig.scheme = new SchemeAsMultiScheme(new TruckEventSchema());
+                spoutConfig.startOffsetTime = kafka.api.OffsetRequest.LatestTime();
 		return spoutConfig;
 	}
 	
@@ -339,7 +340,7 @@ public class TruckEventProcessorKafkaTopologyPhase3 extends BaseTruckEventTopolo
 		 * and emit a 2-tuple consisting of truckId and truckEvent. This driverId
 		 * is required to do a fieldsSorting so that all driver events are sent to the set of bolts */
 		spoutConfig.scheme = new SchemeAsMultiScheme(new TruckSpeedEventSchema());
-		
+		spoutConfig.startOffsetTime = kafka.api.OffsetRequest.LatestTime();
 		return spoutConfig;
 	}	
 	

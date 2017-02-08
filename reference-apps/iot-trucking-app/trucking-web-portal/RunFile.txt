@@ -1,0 +1,47 @@
+nohup mvn jetty:run -X -Djetty.http.port=7071 -Dservice.registry.config.location=/root/workspace/hdp/reference-apps/iot-trucking-app/trucking-web-portal/src/main/resources/config/dev/registry -Dtrucking.activemq.host=10.10.1.141:8161 &
+
+
+
+-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=7000,server=y,suspend=n
+
+export MAVEN_OPTS="-Xdebug -Xnoagent -Djava.compiler=NONE -Xrunjdwp:transport=dt_socket,address=7000,server=y,suspend=n"
+
+-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=7000
+
+-agentlib:jdwp=transport=dt_socket,server=y,address=7000,suspend=n
+
+
+Content-Type: text/html;charset=utf-8
+encoding: utf-8
+
+
+/root/workspace/hdp/reference-apps/iot-trucking-app/trucking-env-setup/environment/prod/setup/config.properties
+
+/root/workspace/hdp/reference-apps/iot-trucking-app/trucking-storm-topology/src/main/resources/config/dev/registry/trucking-streaming-hdp-service-config.properties
+
+/root/workspace/hdp/reference-apps/iot-trucking-app/trucking-web-portal/src/main/resources/config/dev/registry/ref-app-hdp-service-config.properties
+
+/root/workspace/hdp/reference-apps/iot-trucking-app/trucking-web-portal/src/main/resources/config/local/registry/ref-app-hdp-service-config.properties
+
+
+
+/usr/hdf/2.1.1.0-2/kafka/bin/kafka-topics.sh --list --zookeeper nifinode1.example.com:2181
+ambari_kafka_service_check
+bus_events
+bus_speed_events
+truck_events
+truck_events_stream
+truck_speed_events
+truck_speed_events_stream
+
+/usr/hdf/2.1.1.0-2/kafka/bin/kafka-topics.sh --list --zookeeper nifinode1.example.com:2181
+
+/usr/hdf/2.1.1.0-2/kafka/bin/kafka-console-consumer.sh --zookeeper 10.10.1.141:2181 --topic driver_events --from-beginning
+
+
+driver_alert_notifications
+driver_infraction_events
+driver_events
+
+
+

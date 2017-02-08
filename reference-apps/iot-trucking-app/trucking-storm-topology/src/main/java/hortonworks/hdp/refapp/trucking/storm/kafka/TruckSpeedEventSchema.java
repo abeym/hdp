@@ -23,15 +23,15 @@ public class TruckSpeedEventSchema extends BaseTruckEventSchema {
 	public List<Object> deserialize(ByteBuffer buffer) {
 		try {
 			String[] pieces = deserializeRawString(buffer);
-			
-			Timestamp eventTime = Timestamp.valueOf(pieces[0]);
-			String streamSource = pieces[1];
-			int truckId = Integer.valueOf(pieces[2]);
-			int driverId = Integer.valueOf(pieces[3]);
-			String driverName = pieces[4];
-			int routeId = Integer.valueOf(pieces[5]);
-			String routeName = pieces[6];
-			int speed = Integer.valueOf(pieces[7]);
+		        LOG.info("Creating truck speed schema");	
+			Timestamp eventTime = Timestamp.valueOf(pieces[1]);
+			String streamSource = pieces[2];
+			int truckId = Integer.valueOf(pieces[3]);
+			int driverId = Integer.valueOf(pieces[4]);
+			String driverName = pieces[5];
+			int routeId = Integer.valueOf(pieces[6]);
+			String routeName = pieces[7];
+			int speed = Integer.valueOf(pieces[8]);
 			
 			if(LOG.isTraceEnabled()) {
 				LOG.trace("Creating a Truck Scheme with driverId["+driverId + "], driverName["+driverName+"], routeId["+routeId+"], routeName["+ routeName +"], "

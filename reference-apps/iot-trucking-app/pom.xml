@@ -19,9 +19,9 @@
     	<hdp.app.utils.version>2.5.0</hdp.app.utils.version>
     	
 		<hadoop.version>2.7.3.2.5.0.0-1245</hadoop.version>
-		<storm.version>1.0.1.2.5.0.0-1245</storm.version> 
-		<storm.kafka.version>1.0.1.2.5.0.0-1245</storm.kafka.version>
-		<kafka.version>0.10.0.2.5.0.0-1245</kafka.version>
+		<storm.version>1.0.2.2.1.1.0-2</storm.version> 
+		<storm.kafka.version>1.0.2.2.1.1.0-2</storm.kafka.version>
+		<kafka.version>0.10.1.2.1.1.0-2</kafka.version>
 		<storm.hdfs.version>1.0.1.2.5.0.0-1245</storm.hdfs.version>
 		<hbase.version>1.1.2.2.5.0.0-1245</hbase.version>
 		<hive.version>2.1.0.2.5.0.0-1245</hive.version>

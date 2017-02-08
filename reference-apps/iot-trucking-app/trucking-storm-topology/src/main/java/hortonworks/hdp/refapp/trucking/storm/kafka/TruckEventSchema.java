@@ -24,19 +24,21 @@ public class TruckEventSchema extends BaseTruckEventSchema{
 	@Override
 	public List<Object> deserialize(ByteBuffer buffer) {
 		try {
-			String[] pieces = deserializeRawString(buffer);
 			
-			Timestamp eventTime = Timestamp.valueOf(pieces[0]);
-			String streamSource = pieces[1];
-			int truckId = Integer.valueOf(pieces[2]);
-			int driverId = Integer.valueOf(pieces[3]);
-			String driverName = pieces[4];
-			int routeId = Integer.valueOf(pieces[5]);
-			String routeName = pieces[6];
-			String eventType = pieces[7];
-			double latitude= Double.valueOf(pieces[8]);
-			double longitude  = Double.valueOf(pieces[9]);	
-			long correlationId = Long.valueOf(pieces[10]);
+               		String[] pieces = deserializeRawString(buffer);
+			LOG.info("Creating truck schema");
+			
+			Timestamp eventTime = Timestamp.valueOf(pieces[1]);
+			String streamSource = pieces[2];
+			int truckId = Integer.valueOf(pieces[3]);
+			int driverId = Integer.valueOf(pieces[4]);
+			String driverName = pieces[5];
+			int routeId = Integer.valueOf(pieces[6]);
+			String routeName = pieces[7];
+			String eventType = pieces[8];
+			double latitude= Double.valueOf(pieces[9]);
+			double longitude  = Double.valueOf(pieces[10]);	
+			long correlationId = Long.valueOf(pieces[11]);
 			String eventKey = consructKey(driverId, truckId, eventTime);
 			
 			if(LOG.isTraceEnabled()) {
